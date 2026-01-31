@@ -1,0 +1,102 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+}
+
+<!--Importer la liste des 3 meilleurs restos et les mettre dans le foreach-->
+<!--Sinon Importer la liste de tous les restos ordoné par Note (best to last) et changer foreach pour for-->
+
+<!--Restos-->
+<h2>Meilleurs restaurants</h2>
+<table>
+    <tr>
+        @foreach(int resto in listeResto)
+        {
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@resto.Nom</h5>
+                        <p class="card-text">@resto.Cuisine</p>
+                        <p class="card-text">@resto.Note</p>
+                    </div>
+                </div>
+            </td>
+        }
+    </tr>
+</table>
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        @foreach (int resto in listeResto)
+        {
+            <div class="carousel-item">
+                <div class="card" style="width: 18rem;">
+                    <img src="@resto.CheminImage" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@resto.Nom</h5>
+                        <p class="card-text">@resto.Cuisine $</p>
+                        <p class="card-text">@resto.Note</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!--Plats-->
+<h2>Plats les moins chers</h2>
+<table>
+    <tr>
+        @foreach (int plats in listePlats)
+        {
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <img src="@plats.CheminImage" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@plats.Nom</h5>
+                        <!--Consigne : Mettre tous les champs; C'est quoi, tous les champs?-->
+                        <p class="card-text">@plats.Prix $</p>
+                        <p class="card-text">@plats.Categorie</p>
+                        <a href="Views/plats/details?id=@plats.Id" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </td>
+        }
+    </tr>
+</table>
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        @foreach (int plats in listePlats)
+        {
+            <div class="carousel-item">
+                <div class="card" style="width: 18rem;">
+                    <img src="@plats.CheminImage" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@plats.Nom</h5>
+                        <!--Consigne : Mettre tous les champs; C'est quoi, tous les champs?-->
+                        <p class="card-text">@plats.Prix $</p>
+                        <p class="card-text">@plats.Categorie</p>
+                        <a href="Views/plats/details?id=@plats.Id" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
