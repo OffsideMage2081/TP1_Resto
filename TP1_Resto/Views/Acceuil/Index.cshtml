@@ -12,7 +12,7 @@
 <h2>Meilleurs restaurants</h2>
 <table>
     <tr>
-        @foreach(int resto in listeResto)
+        @foreach(Restaurant resto in listeResto)
         {
             <td>
                 <div class="card" style="width: 18rem;">
@@ -28,7 +28,7 @@
 </table>
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
-        @foreach (int resto in listeResto)
+        @foreach (Restaurant resto in listeResto)
         {
             <div class="carousel-item">
                 <div class="card" style="width: 18rem;">
@@ -56,7 +56,7 @@
 <h2>Plats les moins chers</h2>
 <table>
     <tr>
-        @foreach (int plats in listePlats)
+        @foreach (Plat plats in listePlats)
         {
             <td>
                 <div class="card" style="width: 18rem;">
@@ -75,7 +75,7 @@
 </table>
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
-        @foreach (int plats in listePlats)
+        @foreach (Plat plats in listePlats)
         {
             <div class="carousel-item">
                 <div class="card" style="width: 18rem;">
@@ -100,3 +100,4 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+<img src="../Photos/pexels-n-voitkevich-5792322.jpg"

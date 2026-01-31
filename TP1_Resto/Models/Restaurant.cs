@@ -1,4 +1,6 @@
-﻿namespace TP1_Resto.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TP1_Resto.Models
 {
     public class Restaurant
     {
@@ -10,6 +12,24 @@
         //Doit avoir au moins 3 types de cuisine (type de nourriture)
         public string Cuisine {  get; set; }
         public double Note { get; set; }
-        public string Villee {  get; set; }
-    }
+        public string Ville {  get; set; }
+
+        [NotMapped]
+        public int NbrPlats 
+        {
+			get
+			{
+				try
+				{
+					return Plats.Count();
+				}
+				catch
+				{
+					return 0;
+				}
+			}
+		}
+
+		public List<Plat> Plats { get; set; }
+	}
 }

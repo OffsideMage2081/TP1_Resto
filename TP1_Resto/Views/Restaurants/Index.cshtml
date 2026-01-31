@@ -2,7 +2,93 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    
+    List<Plat> plats1 = new List<Plat>();
+    plats1.Add(new Plat
+    {
+        Id = 0,
+        Nom = "Pizza0",
+        Prix = 19.99,
+        Categorie = "Italienne",
+        CheminImage = "../Photos/pexels-n-voitkevich-5792322.jpg"
+    });
+
+    List<Restaurant> allResto = new List<Restaurant>();
+    allResto.Add(new Restaurant
+    {
+        Id = 0,
+        Nom = "Resto0",
+        Adresse = "1, Rue Patate",
+        Telephone = "(450)123-4567",
+        Cuisine = "Italienne",
+        Note = 2.1,
+        Plats = plats1
+    });
 }
 
-<
+<h1>Restaurants</h1>
+<div class="accordion" id="accordionExample">
+    @foreach(Restaurant resto in allResto)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    @resto.Nom
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table>
+                        <tr>
+                            <td>
+                                <p><bold>Nom:</bold> @resto.Nom</p>
+                            </td>
+                            <td>
+                                <p><bold>Adresse:</bold> @resto.Adresse</p>
+                            </td>
+                            <td>
+                                <p><bold>Numéro de téléphone:</bold> @resto.Telephone</p>
+                            </td>
+                            <td>
+                                <p><bold>Cuisine:</bold> @resto.Cuisine</p>
+                            </td>
+                            <td>
+                                <p><bold>Note sur 5:</bold> @resto.Note</p>
+                            </td>
+                            <td>
+                                <p><bold>Ville:</bold> @resto.Ville</p>
+                            </td>
+                            <td>
+                                <p><bold>Nombre de plats offert:</bold> @resto.NbrPlats</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Accordion Item #2
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Accordion Item #3
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+        </div>
+    </div>
+</div>
