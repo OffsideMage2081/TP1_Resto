@@ -2,7 +2,8 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    
+    List<Plat> listePlats = new List<Plat>();
+    List<Restaurant> listeResto = new List<Restaurant>();
 }
 
 <!--Importer la liste des 3 meilleurs restos et les mettre dans le foreach-->
@@ -32,7 +33,6 @@
         {
             <div class="carousel-item">
                 <div class="card" style="width: 18rem;">
-                    <img src="@resto.CheminImage" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">@resto.Nom</h5>
                         <p class="card-text">@resto.Cuisine $</p>
@@ -100,4 +100,3 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<img src="../Photos/pexels-n-voitkevich-5792322.jpg"

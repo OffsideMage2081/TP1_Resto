@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Photos\" />
-    <Folder Include="Views\Plats\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -23,18 +23,62 @@
         Note = 2.1,
         Plats = plats1
     });
+    allResto.Add(new Restaurant
+    {
+        Id = 1,
+        Nom = "Resto1",
+        Adresse = "1, Rue Patate",
+        Telephone = "(450)123-4567",
+        Cuisine = "Italienne",
+        Note = 2.1,
+        Plats = plats1
+    });
+    allResto.Add(new Restaurant
+    {
+        Id = 2,
+        Nom = "Resto0",
+        Adresse = "1, Rue Patate",
+        Telephone = "(450)123-4567",
+        Cuisine = "Italienne",
+        Note = 2.1,
+        Plats = plats1
+    });
+
 }
+@* 
+    Temporaire (Probablement à déplacer dans un view model)
+    public string intToNum(int num)
+    {
+        string words = "";
+        if (words != "")
+            words += "and ";
+
+        var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+        var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
+        if (num < 20)
+            words += unitsMap[num];
+        else
+        {
+            words += tensMap[num / 10];
+            if ((num % 10) > 0)
+                words += "-" + unitsMap[num % 10];
+        }
+        return words;
+    } *@
 
 <h1>Restaurants</h1>
 <div class="accordion" id="accordionExample">
     @foreach(Restaurant resto in allResto)
     {
         <div class="accordion-item">
+            <!--aria-controls doit avoir collapse et un chiffre en lettre, sinon ça marche pas, d'où la méthode au-dessus--->
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     @resto.Nom
                 </button>
             </h2>
+            <!--id doit être la même chose que le aria-constrols associé (je crois)-->
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <table>
@@ -42,21 +86,33 @@
                             <td>
                                 <p><bold>Nom:</bold> @resto.Nom</p>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p><bold>Adresse:</bold> @resto.Adresse</p>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p><bold>Numéro de téléphone:</bold> @resto.Telephone</p>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p><bold>Cuisine:</bold> @resto.Cuisine</p>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p><bold>Note sur 5:</bold> @resto.Note</p>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p><bold>Ville:</bold> @resto.Ville</p>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p><bold>Nombre de plats offert:</bold> @resto.NbrPlats</p>
                             </td>
@@ -66,19 +122,6 @@
             </div>
         </div>
     }
-
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Accordion Item #2
-            </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-        </div>
-    </div>
     <div class="accordion-item">
         <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

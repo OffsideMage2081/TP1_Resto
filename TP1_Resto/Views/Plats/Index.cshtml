@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<string> listeCategorie = new List<string>();
+    string nomCateg = "";
+    List<Plat> listePlats = new List<Plat>();
+
+    listePlats.Add(new Plat
+    {
+        Id = 0,
+        Nom = "Pizza0",
+        Prix = 19.99,
+        Categorie = "Italienne",
+        CheminImage = "../Photos/pexels-n-voitkevich-5792322.jpg"
+    });
+    listePlats.Add(new Plat
+    {
+        Id = 1,
+        Nom = "Pizza1",
+        Prix = 19.99,
+        Categorie = "Italienne",
+        CheminImage = "../Photos/pexels-n-voitkevich-5792322.jpg"
+    });
+    listePlats.Add(new Plat
+    {
+        Id = 2,
+        Nom = "Pizza2",
+        Prix = 19.99,
+        Categorie = "Italienne",
+        CheminImage = "../Photos/pexels-n-voitkevich-5792322.jpg"
+    });
+    listePlats.Add(new Plat
+    {
+        Id = 3,
+        Nom = "Pizza3",
+        Prix = 19.99,
+        Categorie = "Italienne",
+        CheminImage = "../Photos/pexels-n-voitkevich-5792322.jpg"
+    });
+    listePlats.Add(new Plat
+    {
+        Id = 4,
+        Nom = "Pizza4",
+        Prix = 19.99,
+        Categorie = "Italienne",
+        CheminImage = "../Photos/pexels-n-voitkevich-5792322.jpg"
+    });
+}
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Catégories
+    </button>
+    <ul class="dropdown-menu" >
+        @foreach(string categ in listeCategorie)
+        {
+            <li><a class="dropdown-item" href="../Views/Plats/@categ">@categ</a></li>
+        }
+    </ul>
+    @if(nomCateg != ""){
+        <!--Rajouter un event dans le onclick pour changer la sélection de catégorie à vide et mettre nomCateg à ""-->
+        <button type="button" class="btn btn-info" onclick="">Retirer le filtre</button>
+    }
+</div>
+<ul class="list-group">
+    @foreach(Plat plat in listePlats)
+    {
+        <li class="list-group-item">
+            <p>@plat.Nom</p>
+            <button href="../Views/Plats/Details/@plat.Id">Détails</button>
+        </li>  
+    }
+</ul>
